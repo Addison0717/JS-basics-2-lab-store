@@ -26,6 +26,9 @@ var shopFromStore =  function() {
   // Ask the user if they want to continue shopping,
   // if yes, call this function again
   // if no, print the goodbye message
+
+  exitPrompt();
+
 };
 
 
@@ -82,9 +85,21 @@ var askUserForReferenceNumber = function() {
 };
 
 
-
-
-
+function exitPrompt() {
+    var answer;
+    answer = prompt("Do you want to continue shopping? (Y/N)");
+    if (answer === null) {
+        return; //break out of the function early
+    }
+    switch (answer.toUpperCase()) {
+    case 'Y':
+          // Continue shopping if yes
+        break;
+    case 'N':
+        window.alert("Thank you for shooping at Yo!Ga. Have a wonderful day! :-)");
+        break;
+    }
+}
 
 
 
@@ -95,8 +110,7 @@ var askUserForReferenceNumber = function() {
 //
 
 var displayTotalPrice = function (amount = 0) {
-  // document.getElementById('total-price').innerText = amount;
-  // document.getElementById('total-price').innerText = shoppingCart[0].price;
+
 
   var sum = 0;
 
@@ -104,23 +118,9 @@ var displayTotalPrice = function (amount = 0) {
     document.getElementById('total-price').innerText = sum += shoppingCart[i].price;
   }
 
-  // function total(a, b) {
-  //   return a + b;
-  // }
-  // shoppingCart.price.reduce(total);
 
-  // document.getElementById('total-price').innerText = shoppingCart.reduce();
 
 };
-
-// var numbers = [65, 44, 12, 4];
-//
-// function getSum(total, num) {
-//     return total + num;
-// }
-// function myFunction(item) {
-//     document.getElementById("demo").innerHTML = numbers.reduce(getSum);
-// }
 
 
 
