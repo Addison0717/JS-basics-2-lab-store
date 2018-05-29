@@ -19,8 +19,9 @@ var shopFromStore =  function() {
 
   displayProductsFromShoppingCart();
 
-  // calculate the total price of your cart, and use it:
-  displayTotalPrice(/*The variable holding the totol price*/);
+  // calculate the total price of your cart, and use it
+
+  displayTotalPrice();
 
   // Ask the user if they want to continue shopping,
   // if yes, call this function again
@@ -38,6 +39,11 @@ var displayProductsFromShoppingCart = function() {
         shoppingCart.push(product);
       }
     });
+
+    const shoppingCartElement = document.getElementById('shopping-cart')
+    shoppingCartElement.innerHTML = '';
+
+
   // use the printProductsOnScreen function for inspiration
 
   for(var item of shoppingCart){
@@ -66,7 +72,6 @@ var displayProductsFromShoppingCart = function() {
     // Hang that div on the page
     document.getElementById('shopping-cart').appendChild(productElement2);
 
-
   }
 };
 
@@ -90,8 +95,32 @@ var askUserForReferenceNumber = function() {
 //
 
 var displayTotalPrice = function (amount = 0) {
-  document.getElementById('total-price').innerText = amount;
+  // document.getElementById('total-price').innerText = amount;
+  // document.getElementById('total-price').innerText = shoppingCart[0].price;
+
+  var sum = 0;
+
+  for (var i = 0; i < shoppingCart.length; i++) {
+    document.getElementById('total-price').innerText = sum += shoppingCart[i].price;
+  }
+
+  // function total(a, b) {
+  //   return a + b;
+  // }
+  // shoppingCart.price.reduce(total);
+
+  // document.getElementById('total-price').innerText = shoppingCart.reduce();
+
 };
+
+// var numbers = [65, 44, 12, 4];
+//
+// function getSum(total, num) {
+//     return total + num;
+// }
+// function myFunction(item) {
+//     document.getElementById("demo").innerHTML = numbers.reduce(getSum);
+// }
 
 
 
